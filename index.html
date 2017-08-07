@@ -1,0 +1,75 @@
+<!doctype html>
+
+<html lang="pt">
+
+<head>
+  <meta charset="utf-8">
+
+  <title>Etica.AI</title>
+  <meta name="description" content="Etica no uso de Automação e Inteligência Artificial">
+  <style>
+    * {
+      padding: 0px;
+      margin: 0px;
+    }
+
+    html,
+    body {
+      height: 100%;
+    }
+
+    blockquote {
+      margin: 0 auto;
+      height: 100%;
+      width: 100%;
+
+
+      font-size: 1.6em;
+
+      color: #fff;
+      text-align: center;
+      background-color: #159957;
+      background-image: linear-gradient(120deg, #155799, #159957);
+    }
+
+    .q {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  </style>
+</head>
+
+<body>
+  <blockquote>
+    <div class="q">
+      <p lang="pt">"A ética é saber a diferença entre o que você tem o direito de fazer e o que
+        é certo fazer"</p>
+      <p lang="es">"La ética es saber la diferencia entre lo que tienes derecho a hacer y lo que
+        es correcto hacer"</p>
+      <p lang="en">"Ethics is knowing the difference between what you have a right to do and what
+        is right to do"</p>
+      <cite>Potter Stewart </cite>
+    </div>
+  </blockquote>
+  <script>
+    function lang() {
+      var userLang = navigator.language || navigator.userLanguage;
+      if (userLang.indexOf('pt') !== 1) {
+        document.querySelector('[lang=es]').style.display = 'none';
+        document.querySelector('[lang=en]').style.display = 'none';
+      } else if (userLang.indexOf('es') !== 1) {
+        document.querySelector('[lang=es]').style.display = 'none';
+        document.querySelector('[lang=en]').style.display = 'none';
+      } else if (userLang.indexOf('en') !== 1) {
+        document.querySelector('[lang=pt]').style.display = 'none';
+        document.querySelector('[lang=en]').style.display = 'none';
+      }
+      //alert("The language is: " + userLang);
+    }
+    lang();
+  </script>
+</body>
+
+</html>
