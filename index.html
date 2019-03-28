@@ -6,8 +6,16 @@
   <meta charset="utf-8">
 
   <title>Etica.AI</title>
-  <meta name="description" content="Etica no uso de Automação e Inteligência Artificial">
-  <meta http-equiv="refresh" content="5; url=https://github.com/EticaAI/forum">
+  <meta name="description" content="Etica.AI is concerned about long-term social & ethical implications of artificial intelligence on Africa/Latin America. Do it via grassroots acts in short-term.">
+
+  <!-- @see https://support.google.com/webmasters/answer/189077?hl=en -->
+  <link rel="alternate" hreflang="pt" href="https://pt.etica.ai/" />
+  <!--<link rel="alternate" hreflang="es" href="https://github.com/EticaAI/forum" /> -->
+  <link rel="alternate" hreflang="en" href="https://github.com/EticaAI/forum" />
+
+  <!--
+    <meta http-equiv="refresh" content="5; url=https://github.com/EticaAI/forum">
+  -->
   <style>
     * {
       padding: 0px;
@@ -39,6 +47,9 @@
       left: 50%;
       transform: translate(-50%, -50%);
     }
+    .q > p {
+      font-style: italic;
+    }
   </style>
 </head>
 
@@ -52,25 +63,65 @@
       <p lang="en">"Ethics is knowing the difference between what you have a right to do and what
         is right to do"</p>
       <cite>Potter Stewart </cite>
-      <div>
-        <a href="https://github.com/EticaAI/forum" style="color: white">github.com/EticaAI/forum</a>
+      <br>
+      <br>
+      <div lang="pt">
+        Para nossa versão em português, visite: <a href="https://pt.etica.ai" style="color: white">https://pt.etica.ai</a>
+      </div>
+      <!--
+      <div lang="es">
+        Não temos versão em espanhol ainda :/
+      </div>
+      -->
+      <div lang="en">
+        For our English version, visit: <a href="https://github.com/EticaAI/forum" style="color: white">github.com/EticaAI/forum</a>
+      </div>
+      <br>
+      <div class="redirect-message" style="display: none">
       </div>
     </div>
   </blockquote>
   <script>
+    /**
+     * If have JavaScript enabled, hide some divs.
+     * @TODO Rewritten while I'm tired. This may have errors. (fititnt, 2019-03-28 06:01 BRT)
+     */
     function lang() {
       var userLang = navigator.language || navigator.userLanguage;
-      if (userLang.indexOf('pt') !== 1) {
-        document.querySelector('[lang=es]').style.display = 'none';
-        document.querySelector('[lang=en]').style.display = 'none';
-      } else if (userLang.indexOf('es') !== 1) {
-        document.querySelector('[lang=es]').style.display = 'none';
-        document.querySelector('[lang=en]').style.display = 'none';
-      } else if (userLang.indexOf('en') !== 1) {
-        document.querySelector('[lang=pt]').style.display = 'none';
-        document.querySelector('[lang=en]').style.display = 'none';
+      // var userLang = 'pt-BR';
+      // var userLang = 'es-ES';
+      // var userLang = 'en-US';
+      // var userLang = 'ru-RU';
+      if (userLang.indexOf('pt') !== -1) {
+        document.querySelector('p[lang=es]').style.display = 'none';
+        // document.querySelector('div[lang=es]').style.display = 'none';
+        document.querySelector('p[lang=en]').style.display = 'none';
+        document.querySelector('div[lang=en]').style.display = 'none';
+
+        document.querySelector('.redirect-message').style.display = 'block';
+        document.querySelector('.redirect-message').innerText = 'Você será redirecionado automaticamente em 10s...';
+        setTimeout(function() {
+          window.location.replace("https://pt.etica.ai");
+        }, 10000);
+
+      } else if (userLang.indexOf('es') !== -1) {
+        console.log('En este momento todavía no tenemos una versión dedicada en español');
+        document.querySelector('p[lang=pt]').style.display = 'none';
+        document.querySelector('p[lang=en]').style.display = 'none';
+
+        console.log('We do not automaticaly redirect if the user use ES. Let the person chooose');
+      } else if (userLang.indexOf('en') !== -1) {
+        document.querySelector('p[lang=pt]').style.display = 'none';
+        document.querySelector('div[lang=pt]').style.display = 'none';
+        document.querySelector('p[lang=es]').style.display = 'none';
+
+        document.querySelector('.redirect-message').style.display = 'block';
+        document.querySelector('.redirect-message').innerText = 'You will be redirected automatically in 10s...';
+        setTimeout(function() {
+          window.location.replace("https://github.com/EticaAI/forum");
+        }, 10000);
       }
-      //alert("The language is: " + userLang);
+      console.log("Language of the user is: " + userLang);
     }
     lang();
   </script>
